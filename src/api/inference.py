@@ -7,6 +7,10 @@ from schemas import HousePredictionRequest, PredictionResponse
 MODEL_PATH = "models/trained/house_price_model.pkl"
 PREPROCESSOR_PATH = "models/trained/preprocessor.pkl"
 
+# "/home/meysam/house-price-predictor/models/trained"
+# MODEL_PATH = "/home/meysam/house-price-predictor/models/trained/house_price_model.pkl"
+# PREPROCESSOR_PATH = "/home/meysam/house-price-predictor/models/trained/preprocessor.pkl"
+
 try:
     model = joblib.load(MODEL_PATH)
     preprocessor = joblib.load(PREPROCESSOR_PATH)
