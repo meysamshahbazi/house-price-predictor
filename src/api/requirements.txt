@@ -4,5 +4,5 @@ pandas==2.2.3
 joblib==1.4.2
 scikit-learn==1.6.1
 numpy==2.2.6
-xgboost-cpu==3.3.0
-# pyyaml==6.0
+# xgboost-cpue==3.3.0
+pyyaml==6.0
