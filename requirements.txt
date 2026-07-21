@@ -37,7 +37,7 @@ uvicorn==0.46.0        # ASGI server for running FastAPI apps — lightweight an
 #  MISC
 # ---------------------------------------------
 # pyyaml==6.0
-joblib==2.2.3
+joblib==1.4.2
 ipykernel==6.29.5
 
 
