@@ -79,7 +79,7 @@ jobs:
           mkdir -p models
             python src/models/train_model.py --config configs/model_config.yaml \
             --data data/processed/featured_house_data.csv \
-            --models-dir models --mlflow-tracking-uri http://localhost:500
+            --models-dir models --mlflow-tracking-uri http://localhost:5000
       - name: Upload trained model
         uses: actions/upload-artifact@v7 
         with:
