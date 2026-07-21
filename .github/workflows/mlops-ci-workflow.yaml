@@ -63,3 +63,30 @@ jobs:
         with:
           name: processed-data
           path: data/processed/
+      - name: Set up MLflow
+        run: |
+          docker pull ghcr.io/mlflow/mlflow:latest
+          docker run -d -p 5000:5000 --name mlflow-server ghcr.io/mlflow/mlflow:latest mlflow server \
+          --host 0.0.0.0 --backend-store-uri sqlite:///mlflow.db
+      - name: Wait for MLflow to start
+        run: |
+          for i in {1..10}; do
+            curl -f http://localhost:5000/health || sleep 5;
+          done
+      
+      - name: Train model
+        run: |
+          mkdir -p models
+            python src/models/train_model.py --config configs/model_config.yaml \
+            --data data/processed/featured_house_data.csv \
+            --models-dir models --mlflow-tracking-uri http://localhost:500
+      - name: Upload trained model
+        uses: actions/upload-artifact@v7 
+        with:
+          name: trained-model
+          path: models/
+
+      - name: Clean up MLflow
+        run: |
+          docker stop mlflow-server || true
+          docker rm mlflow-server || true
