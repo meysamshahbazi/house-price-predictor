@@ -1,6 +1,8 @@
 # ---------------------------------------------
 # 📊 DATA PROCESSING & ANALYSIS
 # ---------------------------------------------
+setuptools==72.1.0
+
 pandas==2.2.3          # Data manipulation and analysis — core for working with tabular data
 numpy==2.2.6          # Numerical operations, arrays, and matrix support (used by almost all ML libraries)
 
@@ -36,7 +38,6 @@ uvicorn==0.46.0        # ASGI server for running FastAPI apps — lightweight an
 # ---------------------------------------------
 # pyyaml==6.0
 joblib==2.2.3
-setuptools==72.1.0
 ipykernel==6.29.5
 
 
